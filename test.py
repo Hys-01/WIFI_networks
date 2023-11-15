@@ -23,9 +23,9 @@ for x in decodedUTF8:
     marked = marked+x   
     if x =="\r": 
         marker_count +=1
-        if marker_count %2 ==1: 
+        if marker_count ==3: 
             marked = marked + "\033[31m"
-        else: 
+        if marker_count==5:
             marked = marked + "\033[0m"
 
     
