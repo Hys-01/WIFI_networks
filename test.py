@@ -15,20 +15,21 @@ numnetworks_notconsidered = True
 for x in decodedUTF8:
 
     if x.isdigit() and numnetworks_notconsidered: 
-        marked = "\033[32m" + x + "\033[0m"
+        marked = marked + "\033[32m" + x + "\033[0m"
         numnetworks_notconsidered = False
         continue
 
 
-    marked = marked+x   
+    marked = marked+x  
+
     if x =="\r": 
         marker_count +=1
-        if marker_count ==3: 
+        if marker_count ==1: 
             marked = marked + "\033[31m"
-        if marker_count==5:
+        if marker_count==2:
             marked = marked + "\033[0m"
 
     
 
 
-print(marked[0:-1])
+print(marked)
