@@ -4,12 +4,10 @@ import subprocess
 
 args = ['netsh','wlan','show','network']
 output =  subprocess.check_output(args=args)
-
-# output is a byte-string containing carriagereturn chars and newline chars. 
 print(output)
-decodedUTF8 = output.decode('utf-8') 
+# output is a byte-string containing carriagereturn chars and newline chars. 
 
-print(decodedUTF8)
+decodedUTF8 = output.decode('utf-8') 
 
 marked = ''
 marker_count = 0
@@ -18,7 +16,12 @@ for x in decodedUTF8:
 
     if x =="\r": 
         marker_count +=1
-        marked = marked+ ('$' + str(marker_count))
+        print('aaa')
+        if marker_count %2 ==1: 
+            marked = marked + "\033[31m"
+        else: 
+            marked = marked + "\033[0m"
+    
 
 
 print(marked)
