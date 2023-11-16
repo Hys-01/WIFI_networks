@@ -35,6 +35,12 @@ def colorize(lines):
                 lines[i] = SSIDsplit[0] + ':' + BOLD_PURPLE + 'HIDDEN NETWORK' + BOLD_CYAN + SSIDsplit[1] + PLAIN
                 continue
             lines[i] = SSIDsplit[0] + ':' + BOLD_CYAN + SSIDsplit[1] + PLAIN
+
+        if 'Encryption' in line:
+            # edit the encryption font
+            encryption_split = line.split(':')
+            if encryption_split[1] !=  "None":
+                lines[i] = encryption_split[0] + ':' + BOLD_YELLOW + encryption_split[1] + PLAIN
         
 
     # after coloring is finished, join the list of strings/lines back into legible format 
