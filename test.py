@@ -1,3 +1,9 @@
+''' 
+Description: 
+This file generates data of networks that can be detected by the device
+
+'''
+
 import subprocess
 from colors_custom import *
 import re           # regular expressiosn 
@@ -22,14 +28,14 @@ for i, line in enumerate(lines):
         number = re.findall(r'\d+', line)
         print(number[0])
         lines[i] = re.sub(r'\d+', BOLD_GREEN+str(number[0])+PLAIN, line)
+
+    if line.startswith('\nSSID'): 
+        SSIDsplit = line.split(':') 
+        lines[i] = SSIDsplit[0] + ':' + BOLD_CYAN + SSIDsplit[1] + PLAIN
         
-        
-    
 
 final = ' '.join(lines)
 print(final)
-
-
 
 
 print(PLAIN)     # THIS RESETS IT

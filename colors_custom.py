@@ -1,3 +1,12 @@
+'''
+Document thata stores ANSI ESCAPE (COLOR) CODES in global variables
+
+Time Complexity: 
+    O(1)
+Aux Space Complexity: 
+    O(1) 
+'''
+
 PLAIN = "\033[0m"
 
 BLACK = "\033[0;30m"
