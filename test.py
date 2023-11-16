@@ -1,5 +1,6 @@
 import subprocess
 from colors_custom import *
+import re           # regular expressiosn 
 # ubprocess.check_output(args, *, stdin=None, stderr=None, shell=False, universal_newlines=False)
 
 args = ['netsh','wlan','show','network']
@@ -14,10 +15,14 @@ lines = decoded_U8.split("\r")
 for i, line in enumerate(lines): 
     if i ==1: 
         titlesplit = lines[i].split(':')
-        print(titlesplit)
         lines[i] = RED + titlesplit[0] + ":" + BOLD_RED + titlesplit[1] + PLAIN
-    if line.startswith('There'): 
-        pass
+        
+    if line.startswith('\nThere'): 
+        # use regex \d to match digits from 0-9
+        number = re.findall(r'\d+', line)
+        print(number[0])
+        lines[i] = re.sub(r'\d+', BOLD_GREEN+str(number[0])+PLAIN, line)
+        
         
     
 
