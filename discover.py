@@ -22,7 +22,7 @@ output =  subprocess.run(args=args, capture_output=True, text=True)    # output 
 if output.returncode == 0:
     result = output.stdout
     lines = result.split("\n") 
-    print(lines)
+
     final = colorize(lines)
     print(final)
 

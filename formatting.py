@@ -36,12 +36,11 @@ def colorize(lines):
                 continue
             lines[i] = SSIDsplit[0] + ':' + BOLD_CYAN + SSIDsplit[1] + PLAIN
 
-        if 'Encryption' in line:
+        if 'Authentication' in line:
             # edit the encryption font
-            encryption_split = line.split(':')
-            print(type(encryption_split[1]), 'W'+encryption_split[1])
-            if encryption_split[1] != " None ":
-                lines[i] = encryption_split[0] + ':' + BOLD_YELLOW + encryption_split[1] + PLAIN
+            auth_split = line.split(':')
+            if auth_split[1] != " Open":
+                lines[i] = auth_split[0] + ':' + BOLD_YELLOW + auth_split[1] + PLAIN
 
 
         
