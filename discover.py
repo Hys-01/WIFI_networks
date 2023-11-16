@@ -29,4 +29,14 @@ print(PLAIN)
 
 
 
+'''
+future plans: 
+emphasise the network currently connected (if any connected at all) 
+note LOCKED/PASSWORD networks to guest/unlocked ones 
+ADD NEW ATTRIBUTE dBM for signal STRENGTH (quantifier of wifi bars) 
+'''
+
+
+
+
 
