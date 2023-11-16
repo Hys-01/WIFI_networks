@@ -13,7 +13,7 @@ Requirements:
 # importing necessary modules
 import subprocess
 from colors_custom import *
-from formatting import decode, colorize
+from formatting import colorize
 # retreiving data with args
 args = ['netsh','wlan','show','network']
 output =  subprocess.run(args=args, capture_output=True, text=True)    # output is a byte-string containing carriagereturn chars and newline chars. 
@@ -21,8 +21,8 @@ output =  subprocess.run(args=args, capture_output=True, text=True)    # output 
 # format the data using formatting.py
 if output.returncode == 0:
     result = output.stdout
-    print(result)
-    lines = decode(result)
+    lines = result.split("\n") 
+    print(lines)
     final = colorize(lines)
     print(final)
 

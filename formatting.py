@@ -11,12 +11,6 @@ RequiremetsL
 import re
 from colors_custom import *
 
-# decode and clean the data string
-def decode(output): 
-
-    lines = output.split("\n") 
-    
-    return lines
 
 # customization of output, coloring
 def colorize(lines): 
@@ -28,14 +22,14 @@ def colorize(lines):
             lines[i] = RED + titlesplit[0] + ":" + BOLD_RED + titlesplit[1] + PLAIN
             
         # if line describing number of networks found, change the number to bold green 
-        if line.startswith('\nThere'): 
+        if line.startswith('There'): 
             # use regex \d to match digits from 0-9
             number = re.findall(r'\d+', line)
             print(number[0])
             lines[i] = re.sub(r'\d+', BOLD_GREEN+str(number[0])+PLAIN, line)
 
         # if line listing a network, cyan bold the network name
-        if line.startswith('\nSSID'): 
+        if line.startswith('SSID'): 
             SSIDsplit = line.split(':') 
             if len(SSIDsplit[1]) < 2: 
                 lines[i] = SSIDsplit[0] + ':' + BOLD_PURPLE + 'HIDDEN NETWORK' + BOLD_CYAN + SSIDsplit[1] + PLAIN
