@@ -11,8 +11,19 @@ decoded_U8 = output.decode('utf-8')
 decoded_U8 = decoded_U8
 lines = decoded_U8.split("\r") 
 
-print(lines)
-print(PLAIN)
+for i, line in enumerate(lines): 
+    if i ==1: 
+        titlesplit = lines[i].split(':')
+        print(titlesplit)
+        lines[i] = RED + titlesplit[0] + BOLD_RED + titlesplit[1] 
+
+final = ' '.join(lines)
+print(final)
+
+
+
+
+print(PLAIN)     # THIS RESETS IT
 
 
 
