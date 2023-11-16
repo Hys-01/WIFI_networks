@@ -1,4 +1,13 @@
+'''
+Description: 
+    Using data gathered from subprocess.check_output, decode the output and stylises it 
 
+RequiremetsL 
+    re and colors_custom modules 
+
+'''
+
+# import modules
 import re
 from colors_custom import *
 
