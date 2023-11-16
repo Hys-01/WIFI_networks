@@ -39,8 +39,11 @@ def colorize(lines):
         if 'Encryption' in line:
             # edit the encryption font
             encryption_split = line.split(':')
-            if encryption_split[1] !=  "None":
+            print(type(encryption_split[1]), 'W'+encryption_split[1])
+            if encryption_split[1] != " None ":
                 lines[i] = encryption_split[0] + ':' + BOLD_YELLOW + encryption_split[1] + PLAIN
+
+
         
 
     # after coloring is finished, join the list of strings/lines back into legible format 
