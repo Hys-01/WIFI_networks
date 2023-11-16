@@ -15,7 +15,11 @@ for i, line in enumerate(lines):
     if i ==1: 
         titlesplit = lines[i].split(':')
         print(titlesplit)
-        lines[i] = RED + titlesplit[0] + BOLD_RED + titlesplit[1] 
+        lines[i] = RED + titlesplit[0] + ":" + BOLD_RED + titlesplit[1] + PLAIN
+    if line.startswith('There'): 
+        pass
+        
+    
 
 final = ' '.join(lines)
 print(final)
