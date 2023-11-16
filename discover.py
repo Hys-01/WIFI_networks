@@ -16,11 +16,19 @@ from colors_custom import *
 from formatting import decode, colorize
 # retreiving data with args
 args = ['netsh','wlan','show','network']
-output =  subprocess.check_output(args=args)    # output is a byte-string containing carriagereturn chars and newline chars. 
+output =  subprocess.run(args=args, capture_output=True, text=True)    # output is a byte-string containing carriagereturn chars and newline chars. 
 
 # format the data using formatting.py
-lines = decode(output)
-final = colorize(lines)
+if output.returncode == 0:
+    result = output.stdout
+    print(result)
+    lines = decode(result)
+    final = colorize(lines)
+    print(final)
+
+else:
+    print("Error executing command:", output.stderr)
+
 
 
 # remove any active ANSI escape code

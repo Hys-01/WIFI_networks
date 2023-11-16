@@ -13,13 +13,14 @@ from colors_custom import *
 
 # decode and clean the data string
 def decode(output): 
-    decoded_U8 = output.decode('utf-8') 
-    decoded_U8 = decoded_U8
-    lines = decoded_U8.split("\r") 
+
+    lines = output.split("\n") 
+    
     return lines
 
 # customization of output, coloring
 def colorize(lines): 
+
     for i, line in enumerate(lines): 
         # if first line, colour it red and bold the interface name
         if i ==1: 
@@ -43,6 +44,6 @@ def colorize(lines):
         
 
     # after coloring is finished, join the list of strings/lines back into legible format 
-    final = ' '.join(lines)
+    final = '\n'.join(lines)
     print(final)
 
