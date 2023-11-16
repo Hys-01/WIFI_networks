@@ -38,6 +38,7 @@ def colorize(lines):
             SSIDsplit = line.split(':') 
             if len(SSIDsplit[1]) < 2: 
                 lines[i] = SSIDsplit[0] + ':' + BOLD_PURPLE + 'HIDDEN NETWORK' + BOLD_CYAN + SSIDsplit[1] + PLAIN
+                continue
             lines[i] = SSIDsplit[0] + ':' + BOLD_CYAN + SSIDsplit[1] + PLAIN
         
 
