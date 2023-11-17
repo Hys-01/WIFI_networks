@@ -25,7 +25,7 @@ def colorize(lines):
         if line.startswith('There'): 
             # use regex \d to match digits from 0-9
             number = re.findall(r'\d+', line)
-            print(number[0])
+
             lines[i] = re.sub(r'\d+', BOLD_GREEN+str(number[0])+PLAIN, line)
 
         # if line listing a network, cyan bold the network name
@@ -47,5 +47,5 @@ def colorize(lines):
 
     # after coloring is finished, join the list of strings/lines back into legible format 
     final = '\n'.join(lines)
-    print(final)
+    return final
 

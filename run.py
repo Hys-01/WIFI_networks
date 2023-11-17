@@ -29,10 +29,15 @@ time.sleep(5)
 args = ['netsh','wlan','show','network']
 output =  subprocess.run(args=args, capture_output=True, text=True)    # output is a byte-string containing carriagereturn chars and newline chars. 
 
+
+
 # format the data using formatting.py
 if output.returncode == 0:
     lines = output.stdout.split("\n") 
+
+    print('__________________________________________________________')
     print(colorize(lines))
+    print('__________________________________________________________')
 else:
     print("Error executing command:", output.stderr)
 
