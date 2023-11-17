@@ -16,6 +16,7 @@ from colors_custom import *
 from formatting import colorize
 import time 
 
+# using custom network refresh exe script
 try:
     subprocess.run(["C:\\Users\\hbros\\WlanScan.exe"], check=True)
 except subprocess.CalledProcessError as e:
@@ -23,22 +24,17 @@ except subprocess.CalledProcessError as e:
 else:
     print("Wi-Fi rescan triggered successfully.")
 time.sleep(5)
+
 # retreiving data with args
 args = ['netsh','wlan','show','network']
 output =  subprocess.run(args=args, capture_output=True, text=True)    # output is a byte-string containing carriagereturn chars and newline chars. 
 
 # format the data using formatting.py
 if output.returncode == 0:
-    result = output.stdout
-    lines = result.split("\n") 
-
-    final = colorize(lines)
-    print(final)
-
+    lines = output.stdout.split("\n") 
+    print(colorize(lines))
 else:
     print("Error executing command:", output.stderr)
-
-
 
 # remove any active ANSI escape code
 print(PLAIN)    
